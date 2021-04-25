@@ -84,6 +84,7 @@ Ald48Character::Ald48Character()
 	//bUsingMotionControllers = true;
 
 	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bStartWithTickEnabled = true;
 }
 
 void Ald48Character::BeginPlay()
@@ -109,6 +110,9 @@ void Ald48Character::BeginPlay()
 
 void Ald48Character::Tick(float DeltaSeconds)
 {
+	// Call the base class
+	Super::Tick(DeltaSeconds);
+	
 	RefireTimer += DeltaSeconds;
 }
 
@@ -198,6 +202,7 @@ void Ald48Character::OnFire()
 	}
 
 	RefireTimer = 0.0f;
+	RefireSoundShouldPlay = true;
 }
 
 void Ald48Character::OnResetVR()

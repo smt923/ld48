@@ -55,7 +55,7 @@ public:
 	Ald48Character();
 
 protected:
-	virtual void BeginPlay();
+	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaSeconds) override;
 
@@ -142,6 +142,9 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	float RefireTimer = 0.0f;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	bool RefireSoundShouldPlay = false;
 
 public:
 	/** Returns Mesh1P subobject **/
